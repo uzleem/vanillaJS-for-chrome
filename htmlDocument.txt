@@ -1,0 +1,57 @@
+
+===================== 기존 프론트엔드  VS 모던 프론트엔드 =====================
+기존 프론트엔드
+HTML과 CSS를 혼용해서 표현
+필요한 CSS/JS 기능은 검색해서 쓰려다보니
+반응형과 호환성이 안좋고
+JQUERY를 사용하여, 성능이 안좋다
+
+모던 프론트엔드
+HTML은 구조, CSS로 디자인
+반응형과 호환성을 고려 
+JS Only(Vanilla JS)
+미진한 JS 개선한 Javascript ES6
+
+
+===================== HTML 템플릿 =====================
+* DOCTYPE 
+- HTML 최상단 태그로 해당 문서를 브라우저가 다르게 렌더링 하지 않도록 함 
+
+* HTML 
+- 속성 : lang, 언어설정, ko,er ...
+- html문서는 <head>, <body>태그로 이루어짐
+
+* head
+- html문서 전체를 대표하거나, html문서 전체에 필요한 데이터를 포함
+- title, meta태그를 주로 사용함.
+
+* meta
+- body에 있는 내용을 읽어 인코딩 하는 형식 
+- 문서 전반에 걸친 정보를 표시하기 위한 설정 
+- 속성 : charset, 문자 인코딩 설정, utf-8, euc-kr..
+         name, 메타 정보이름, 문서설명 등.. ex) description, keywords, author를 사용함으로 검색엔진으로 검색을 하기위한 정보로 사용함
+                                                - name="description" content="HTML 문서에 대한 설명"
+                                                - name="keywords" content="검색 키워드"
+                                                - name="author" content="작성자"
+* meta - 호환성 관련 태그
+- <meta http-equiv=X-UA-Compatible" content="ie=edge"> 
+    호환성 관련 태그로 익스플로어(IE)에서 최신 표준 모드로 렌더링되도록 하는 설정(호환성 이슈로 꼭 작성하는것을 추천)
+
+* meta - 반응형 웹 관련 태그
+- <meta name="viewport" content="">
+    viewport(뷰포트)란? : 브라우저상에서 현재 창에서 문서를 볼 수 있는 전체 화면을 의미한다.
+ 
+* LINK
+- 속성 : rel, html문서와 외부 데이터와의 관계 표시
+         href, 외부 데이터 파일 위치 지정
+
+* STYLE
+- CSS 코드 정의
+
+* SCRIPT
+- JS 코드 정의
+
+
+* body 
+- 
+
