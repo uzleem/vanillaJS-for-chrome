@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        table, tr, td, th{
+            border: solid;
+        }
+
+        div {
+            border: solid;
+        }
+    </style>
+
+    <title>HTML Practice</title>
 </head>
 <body>
 <h2> HTML 기본 테스트</h2> 
 
-<h3>a</h3>
+<h3>* a</h3>
 <p>기본
     <a href="https://www.naver.com" >네이버링크</a>
 </p>
@@ -27,7 +37,7 @@
     <a href="https://www.naver.com" target="_top">네이버링크</a>
 </p>
 
-<h3>ol, ul, li</h3>
+<h3>* ol, ul, li</h3>
 <ol>
     <li>아침</li>
     <li>점심</li>
@@ -38,7 +48,84 @@
     <li>점심</li>
     <li>저녁</li>
 </ul>
-<div>div 테스트</div>
+
+<h3>* div</h3>
+<div>
+div 
+
+</div>
+
+
+<h3>* table</h3>
+<table>
+    <thead>
+        <tr>
+            <th>thead</th>
+            <th>1열 1행</th>
+            <th>1열 2행</th>
+            <th>1열 3행</th>
+            <td>1열 4행</td>
+            <td>1열 5행</td>
+            <td>1열 6행</td>
+            
+        </tr>
+    </thead>
+        <tr>
+            <th>basic</th>
+            <td>2열1행</td>
+            <td>2열2행</td>
+        </tr>
+    <tfoot>
+        <tr>
+            <th>tfoot</th>
+            <td>3열1행</td>
+            <td>3열2행</td>
+        </tr>
+    </tfoot>
+</table>
+<h3>* colspan, rowspan</h3>
+<table>
+    <thead>
+        <tr>
+            <th>thead</th>
+            <th>1열 1행</th>
+            <th>1열 2행</th>
+            <th>1열 3행</th>
+            <td>1열 4행</td>
+            <td>1열 5행</td>
+            <td>1열 6행</td>
+            
+        </tr>
+    </thead>
+        <tr>
+            <th>basic</th>
+            <td>2열1행</td>
+            <td>2열2행</td>
+        </tr>
+    <tfoot>
+        <tr>
+            <th>tfoot</th>
+            <td colspan="2">3열1행</td>
+            <td rowspan="2">3열2행</td>
+        </tr>
+        <tr>
+            <td>rowspan테스트</td>
+
+        </tr>
+    </tfoot>
+</table>
+
+<h3>form</h3>
+<form action="login.html" method="post">
+  ID: <input type="button" value="입력버튼" name="id" /><br>
+  PW:<input type="text" name="pw" autofocus /><br>
+  <input type="checkbox" name="pw" />
+  <input type="text" name="pw" autocomplete="off" />
+</form>
+
+
+
+
 </body>
 </html>
 
