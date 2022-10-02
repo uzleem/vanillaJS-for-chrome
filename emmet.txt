@@ -1,5 +1,0 @@
-emmet
-
-HTML 자동생성
-    1. ! + Tab	
-    2. html:  입력후 Tab
