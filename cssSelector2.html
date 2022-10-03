@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cssSelector</title>
 <!-- 
-    Selector 조합, 
+    Selector 조합, 복합Selector, 자식Selector, 일반 형제 셀렉트, 가상 클랙스 셀렉터
 
+    시간관계상 이후 CSS는 프로젝트 이후 모르는 것만 정리.
 -->
 <style>
     * {
@@ -16,6 +17,10 @@
         border: none;
         font-size: 25;
     }
+
+    /* 
+        Selector 조합
+    */
     h4.woojin#lim {
         color: red;
     }
@@ -24,20 +29,72 @@
         color: yellow;
     }
 
-    div span {
+    /* 
+        복합Selector
+    */
+    /* div span {
         color:  royalblue   ;    
+    } */
+
+    /* 
+        자식 Selector :
+        div 바로아래의 p에만 해당함
+    */
+    
+    div > p {
+        color: red;
     }
+
+    /* 
+       일반 형제 셀렉트(General Sibling Selector)
+       1. h1 + h6 
+        h1 바로 아래에 해당하는 h6을 표시해줄때 사용
+       
+       2. h1 ~ h6
+        h1태그 이후에 나오는 h6은 모두 
+    */
+
+    /* 
+        가상 클래스 셀렉터(Pseudo-Class-Selector)
+            ex)
+            a태그에 마우스를 올릴때
+                a:hover {
+
+                }
+
+            인풋태그에 포커스 표시
+                input:focus{
+
+                }
+    */
+
+    /*
+        UI 요소 상태 셀렉터 (UI Element States Pseudo-Class)
+            ex)
+            인풋 태그 타입 라디오에 해당하고 기본타입인 항목 뒤 span에 css적용
+                indeterminate는 화면을 처음 킨 후 동작을 하지 않을때에만 해당함.
+            input[type="radio"]:indeterminate + span{
+                color:red;
+            }
+
+
+            인풋 태그 타입 체크박스에 해당하고 활성화된 항목 뒤 span에 css적용
+            input[type="cehckbox"]:enabled + span{
+                color:red;
+            }
+    */
+
 </style>
 </head>
 <body>
-<h3>[Selector 조합, 복합Selector]</h3>    
+<h3>[Selector 조합, 복합Selector, 자식Selector, 일반 형제 셀렉트, 가상 클랙스 셀렉터]</h3>    
 <br>
 
-<h3>* h1 > class > id </h3>    
+<h3>* h4 > class > id </h3>    
 <h4 class="woojin" id="lim">Hi woojin</h4>
 <br>
 
-<h4>todo</h4>    
+<h4>div > span</h4>    
 <div>
     <h1>woo jin</h1>
     <p>안녕하세요 1 2 3</p>
@@ -47,10 +104,26 @@
         </span><br>
         p 테스트 
     </p>
+</div><br>
 
+<h4>child</h4>
+<div id="childTest">
+    <h1>woo jin</h1>
+        <p>
+        <h1>
+            div > p 테스트 1번
+        </p>
+        </h1>
+
+        <p>
+            <span>
+                div > p 테스트 2번
+            </span>
+        </p>
 </div>
 
-
+<h4>General Sibling Selector</h4>
+<div></div>
 
 
 </body>
