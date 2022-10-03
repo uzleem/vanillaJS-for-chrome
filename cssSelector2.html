@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cssSelector</title>
+<!-- 
+    Selector 조합, 
+
+-->
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        font-size: 25;
+    }
+    h4.woojin#lim {
+        color: red;
+    }
+
+    h1 {
+        color: yellow;
+    }
+
+    div span {
+        color:  royalblue   ;    
+    }
+</style>
+</head>
+<body>
+<h3>[Selector 조합, 복합Selector]</h3>    
+<br>
+
+<h3>* h1 > class > id </h3>    
+<h4 class="woojin" id="lim">Hi woojin</h4>
+<br>
+
+<h4>todo</h4>    
+<div>
+    <h1>woo jin</h1>
+    <p>안녕하세요 1 2 3</p>
+    <p>
+        <span>
+            p > span 테스트 
+        </span><br>
+        p 테스트 
+    </p>
+
+</div>
+
+
+
+
+</body>
+</html>
+

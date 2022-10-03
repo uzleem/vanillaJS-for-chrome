@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cssSelector</title>
+<!-- 
+    Selector 태그 : id, Class, attribute, margin, padding, border
+
+-->
+
+
+<style>
+    * {
+        margin : 0px;
+        padding : 0px;
+        border : none;
+        font-size: 30px;
+    }
+
+    /* 태그 Selector */
+    h1 {
+        color: red;
+    }
+
+    /* id Selector */
+    #woo {
+        color: blue;
+    }
+
+    /* Class Selector */
+    .jin {
+        color: green;
+    }
+
+    /* attribute(속성) Selector : = 
+        설명 : 속성명이 attrWoo인 경우만 포함시킨다.
+    */
+    [attrTest=attrWoo] {
+        color: yellow;
+    }
+
+    /* attribute(속성) Selector : ~= 
+        설명 : woo가 포함된 케이스를 지정한다. (공백없이 지정된 경우는 제외시킴.) 
+        ex) woo1, woo2 (X), woo 1, woo 2 (O)
+    */
+    [attrTest~="woo"] {
+        color: pink;
+    }
+
+    /* attribute(속성) Selector : |=
+        설명 : woo2가 포함되거나, woo2 이후 '-' 표시로 이어지는 경우를 포함시킨다.
+        ex) woo2, woo2-test (O)
+    */
+    [attrTest|="woo2"] {
+        color: blueviolet;
+    }
+
+    /* attribute(속성) Selector : ^=
+        설명 : woo2로 시작하는 모든케이스를 포함한다.
+        
+    */
+    [attrTest^="woo3"] {
+        color: aqua;
+    }
+
+    /* attribute(속성) Selector : $=
+        설명 : woo4로 끝나는 모든케이스를 포함한다.
+        
+    */
+    [attrTest$="woo4"] {
+        color: brown;
+    }    
+
+
+</style>    
+</head>
+
+
+
+<body>
+<h3>[Selector 태그 : id, Class, attribute, margin, padding, border]</h3>
+<br>
+
+<h4>*</h4>
+<h1>h1</h1>
+<br>
+
+<h4>* id </h4>
+<h2 id = "woo">id</h2>
+<br>
+
+<h4>* class </h4>
+<h3 class = "jin">class</h3>
+<h4 class = "jin">class</h4>
+<br>
+
+<h4>* 속성태그 : =</h4>
+<p attrTest="attrWoo">attrWoo</p>
+<br>
+
+<h4>* 속성태그 : ~= </h4>
+<p attrTest="woo">woo</p>
+<p attrTest="woo jin">woo jin</p>
+<p attrTest="woojin">woojin</p>
+<br>
+
+<h4>* 속성태그 :  |= </h4>
+<p attrTest="woo2">woo2</p>
+<p attrTest="woo2-jin-test">woo2-jin-test</p>
+<p attrTest="woo2jin">woo2jin</p>
+<br>
+
+<h4>* 속성태그 : ^= </h4>
+<p attrTest="woo3">woo3</p>
+<p attrTest="woo3 jin">woo3 jin</p>
+<p attrTest="woo3-jin">woo3jin</p>
+<p attrTest="liwo">liwo</p>
+<br>
+
+<h4>* 속성태그 : $= </h4>
+<p attrTest="qqwoo4">qqwoo4</p>
+<p attrTest="qq woo4">qq woo4</p>
+<p attrTest="qq-woo4">qq-woo4</p>
+<br>
+
+</body>
+</html>
