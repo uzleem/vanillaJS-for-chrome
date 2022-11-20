@@ -59,6 +59,3 @@ if(loginInfo === null) {
 }else {
     loginAfter(loginInfo);
 };
-
-
-console.log()
