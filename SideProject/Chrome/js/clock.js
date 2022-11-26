@@ -1,4 +1,4 @@
-const clock = document.getElementById('clock');
+const clock = document.querySelector("#clock");
 
 /**
  * @abstract : 시,분,초 시계 함수

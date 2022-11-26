@@ -1,9 +1,9 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 const greting = document.querySelector("#greting");
+const quoteOrigin = document.querySelector("#quote");
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "userName"
-
 
 
 
@@ -37,6 +37,10 @@ function onLoginSubmit(event) {
  */
 function loginAfter(userName) {
     greting.classList.remove(HIDDEN_CLASSNAME);
+    clock.classList.remove(HIDDEN_CLASSNAME);
+    quoteOrigin.classList.remove(HIDDEN_CLASSNAME);
+    
+
     greting.innerHTML = `Hello! ${userName}.`;  // 벡틱(`) 방식으로 사용 시 + 없이 구문 추가
 }
 
