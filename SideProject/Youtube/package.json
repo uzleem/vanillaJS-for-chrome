@@ -1,0 +1,24 @@
+{
+  "name": "youtube",
+  "version": "1.0.0",
+  "description": "my sideProject Youtube",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uzleem/VanillaJS.git"
+  },
+  "keywords": [
+    "youtube"
+  ],
+  "scripts": {
+    "win": "node index.js"
+  },
+  "author": "uzleem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uzleem/VanillaJS/issues"
+  },
+  "homepage": "https://github.com/uzleem/VanillaJS#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
