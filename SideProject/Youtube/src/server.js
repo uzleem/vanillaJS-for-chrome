@@ -3,41 +3,23 @@
  * 2. express > index.js 수행
  * 3. express/lib/express 수행
  */
-import express, { response } from "express";
+import express from "express";
+import morgan from "morgan";
+import globalRouter from "./Router/globalRouter";
+import userRouter from "./Router/userRouter";
+import videoRouter from "./Router/videoRouter";
 
-const PORT = 4000
-
-/**
- * express를 활용한 서버 생성
- * 1. express() 함수 사용
- * 2. listen() 함수 사용 : port번호, callback 
- */
+const PORT = 4000;
 
 /**
  * express 선언
- */
+*/
 const app = express();
 
-
 /**
- * 
- * express의 기능인 get을 통해 request, response 객체를 활용 가능함.
+ * express 활용 서버 생성
  */
-const reqRes = (req, res) => {
-    
-    // request 강제종료 
-    // return res.end(); 
-
-    return res.send("i'm send");
-}
-
-const loginHere = (req, res) => {
-    return res.send("login Here!");
-}
-
-app.get("/", reqRes);
-app.get("/login", loginHere)
-
+app.listen(PORT, handleListening);
 
 /**
  * 
@@ -47,8 +29,15 @@ const handleListening = () => console.log(`Server => https://localhost:${PORT}�
 
 
 /**
- * express 활용 서버 생성
+ * morgan log
  */
-app.listen(PORT, handleListening);
+const logger = morgan("dev"); // common, combined, short, tiny . . .
+app.use(logger);
 
 
+/**
+ * MiddleWare 
+ */
+app.use("/", globalRouter);
+app.use("/user", userRouter);
+app.use("/video", videoRouter);
