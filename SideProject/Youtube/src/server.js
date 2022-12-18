@@ -12,6 +12,13 @@ import videoRouter from "./Router/videoRouter";
 const PORT = 4000;
 
 /**
+ * 현재 작업 디렉토리 위치 확인
+ * cwd(현재 작업 디렉토리) : node.js를 실행하는 디렉토리 위치.(node.js는 packge.json을 통해 실행)
+ * express는 pug를 찾을때 cwd + views 폴더에서 pug를 찾기에 현재 cwd가 어디인지 확인 
+ */
+console.log(process.cwd());
+
+/**
  * express 선언
 */
 const app = express();
@@ -41,3 +48,14 @@ app.use(logger);
 app.use("/", globalRouter);
 app.use("/user", userRouter);
 app.use("/video", videoRouter);
+
+/**
+ * Pug(View engine설정)
+ */
+app.set("view engine", "pug");
+
+/**
+ * Pug dafault : cwd(현재 디렉토리)
+ * + /src/views : 원하는 위치 경로설정
+ */
+app.set("views", process.cwd() + "/src/views");
