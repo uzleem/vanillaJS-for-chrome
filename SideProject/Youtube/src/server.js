@@ -16,7 +16,7 @@ const PORT = 4000;
  * cwd(현재 작업 디렉토리) : node.js를 실행하는 디렉토리 위치.(node.js는 packge.json을 통해 실행)
  * express는 pug를 찾을때 cwd + views 폴더에서 pug를 찾기에 현재 cwd가 어디인지 확인 
  */
-console.log(process.cwd());
+// console.log(process.cwd());
 
 /**
  * express 선언
@@ -39,8 +39,13 @@ const handleListening = () => console.log(`Server => https://localhost:${PORT}�
  * morgan log
  */
 const logger = morgan("dev"); // common, combined, short, tiny . . .
-app.use(logger);
+// app.use(logger);
 
+/**
+ * express기능으로 form데이터를 인식할수 있도록 적용,
+ * url을 넘어갈때는 middleWare 이후 진행되기에 middleWare 사용 전에 적용해야함
+ */
+app.use(express.urlencoded({extended : true}));
 
 /**
  * MiddleWare 
@@ -59,3 +64,5 @@ app.set("view engine", "pug");
  * + /src/views : 원하는 위치 경로설정
  */
 app.set("views", process.cwd() + "/src/views");
+
+
