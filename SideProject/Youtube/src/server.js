@@ -3,6 +3,7 @@
  * 2. express > index.js 수행
  * 3. express/lib/express 수행
  */
+import "./db";
 import express from "express";
 import morgan from "morgan";
 import globalRouter from "./Router/globalRouter";
