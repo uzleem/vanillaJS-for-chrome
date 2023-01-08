@@ -39,7 +39,7 @@ const handleListening = () => console.log(`Server => https://localhost:${PORT}�
  * morgan log
  */
 const logger = morgan("dev"); // common, combined, short, tiny . . .
-// app.use(logger);
+app.use(logger);
 
 /**
  * express기능으로 form데이터를 인식할수 있도록 적용,
