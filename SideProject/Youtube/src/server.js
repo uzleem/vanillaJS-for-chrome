@@ -3,39 +3,14 @@
  * 2. express > index.js 수행
  * 3. express/lib/express 수행
  */
-import "./db";
 import express from "express";
 import morgan from "morgan";
 import globalRouter from "./Router/globalRouter";
 import userRouter from "./Router/userRouter";
 import videoRouter from "./Router/videoRouter";
 
-const PORT = 4000;
-
-/**
- * 현재 작업 디렉토리 위치 확인
- * cwd(현재 작업 디렉토리) : node.js를 실행하는 디렉토리 위치.(node.js는 packge.json을 통해 실행)
- * express는 pug를 찾을때 cwd + views 폴더에서 pug를 찾기에 현재 cwd가 어디인지 확인 
- */
-// console.log(process.cwd());
-
-/**
- * express 선언
-*/
 const app = express();
-
-/**
- * express 활용 서버 생성
- */
-app.listen(PORT, handleListening);
-
-/**
- * 
- * @returns app.listen 이후 callback
- */
-const handleListening = () => console.log(`Server => https://localhost:${PORT}😎`);
-
-
+export default app;
 /**
  * morgan log
  */

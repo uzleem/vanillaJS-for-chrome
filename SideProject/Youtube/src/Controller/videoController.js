@@ -1,46 +1,17 @@
-const videos = [
-    {
-        title : "First Video", 
-        rating : 5,
-        comments : "2comments",
-        createdAt : "Monster",
-        views : 59,
-        id : 1
-    },
-    {
-        title : "Second Video", 
-        rating : 5,
-        comments : "2comments",
-        createdAt : "Monster",
-        views : 1,
-        id : 2
-    },
-    {
-        title : "Third Video", 
-        rating : 5,
-        comments : "2comments",
-        createdAt : "Monster",
-        views : 59,
-        id : 3
-    }
-];
+import videoModel from "../model/video";
 
-
-export const home = (req, res) => res.render("home", {pageTitle:"HomePug", videos});
+export const home = async (req, res) =>  {
+    const videos = await videoModel.find({});
+    console.log(videos);
+    return res.render("home", {pageTitle:"HomePug", videos});
+};
 
 /**
  *  watch 
  */
-export const watch = (req, res) => {
-    
-    // -- ES6 ver : req.params value를 바로 받아올수있음.
+export const watch = (req, res) => {    
     let { id } = req.params; 
-    // console.log(id);
-
-    let video = videos[id - 1];
-    // console.log(video);
-
-    return res.render("watch", {pageTitle:`${video.title}`, video})
+    return res.render("watch", {pageTitle})
 
 }
 
@@ -52,11 +23,9 @@ export const getEdit = (req, res) => {
     let { id } = req.params;
     // console.log(req.params); 
     // console.log("========getTest========");
-    
-    let video = videos[id-1];
-    console.log(video);
 
-    return res.render("edit", {pageTitle:`Editing:${video.title}`, video});
+
+    return res.render("edit", {pageTitle});
 
 }
  
@@ -76,10 +45,7 @@ export const postEdit = (req, res) => {
 
     // 기존 값 변경
     console.log("========save Test========");
-    console.log(`AS-IS : ${videos[id - 1].title}`);
-    videos[id - 1].title = newTitle;
 
-    console.log(`TO-BE : ${videos[id - 1].title}`);
     
     return res.redirect(`/video/${id}`)
 }
@@ -94,19 +60,27 @@ export const getUpload = (req, res) => {
 /**
  * post Upload
  */
-export const postUpload = (req, res) => {
-    const { title } = req.body
-    const newVideo = 
-        {
-            title,
-            rating : 0,
-            comments : "0comments",
-            createdAt : "just now",
-            views : 0,
-            id : videos.length+1
-        }
+export const postUpload  = async (req, res) => {
     
-    videos.push(newVideo);
+    const { title, description, hashtags, meta } = req.body
+    
+    // const video = new videoModel({
+    try{
+        await videoModel.create({    
+            title,
+            description,
+            createAt : Date.now(),
+            hashtags : hashtags.split(",").map(test=>`#${test}`),
+            meta : {
+                views : 0,
+                rating : 0
+            },
+        })
+    }catch{
+        console.log("error");
+    }
+
+    // await video.save();
     return res.redirect("/")
 }
 

@@ -2,6 +2,7 @@ extends layout.pug
 include mixins/video
 
 block contents 
-    h2 WelCome Page Video Home!
     each info in videos
         +video(info)
+    else
+        li Sorry.
