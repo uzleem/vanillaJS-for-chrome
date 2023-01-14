@@ -1,8 +1,12 @@
 extends layout.pug
 
 block contents
-    h1 #{video.views} #{video.views === 1 ? "view" : "views"}
+    div
+        p=videos.description
+        small=videos.createAt 
+            
+    a(href=`${videos.id}/edit`) EDIT PAGE!
+     
     
-    a(href=`${video.id}/Edit`) Edit
 
     

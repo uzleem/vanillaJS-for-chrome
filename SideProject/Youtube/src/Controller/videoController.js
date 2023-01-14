@@ -1,53 +1,80 @@
 import videoModel from "../model/video";
 
 export const home = async (req, res) =>  {
+    console.log(`============================== home ==============================`);
+    
+    // mongoose data 모두 조회
     const videos = await videoModel.find({});
-    console.log(videos);
+    // console.log(`${videos}`);
+
     return res.render("home", {pageTitle:"HomePug", videos});
 };
 
 /**
  *  watch 
  */
-export const watch = (req, res) => {    
+export const watch = async (req, res) => { 
+    console.log(`============================== watch ==============================`);
+    
     let { id } = req.params; 
-    return res.render("watch", {pageTitle})
-
+    
+    // id에 해당하는 값 조회
+    const videos = await videoModel.findById(id).exec();
+    // console.log({id}
+   
+    if(!videos) {
+        return res.render("error404", {pageTitle:"Video Not Found"}) 
+    }
+    return res.render("watch", {pageTitle:`Edit ${videos.title}`, videos})    
 }
 
 /**
  * getEdit
  */
-export const getEdit = (req, res) => {
+export const getEdit = async (req, res) => {
+    console.log(`============================== getEdit ==============================`)
     
-    let { id } = req.params;
+    let { id } = req.params
     // console.log(req.params); 
-    // console.log("========getTest========");
 
+    const videos = await videoModel.findById(id).exec()
 
-    return res.render("edit", {pageTitle});
-
+    if(!videos) {
+        return res.render("error404", {pageTitle:"Video Not Found"})
+    }
+    return res.render("edit", {pageTitle:`EDIT ${videos.title}`, videos})
 }
  
 /**
  * postEdit
  */
-export const postEdit = (req, res) => {
+export const postEdit = async (req, res) => {
+    console.log(`============================== postEdit ==============================`);
     
-    console.log("========set Test========");
+    // reqID : id
+    console.log("========req.params=======");
     let { id } = req.params; 
     console.log(id);
-
-    // form에서 받아온 값
-    console.log("========newTitle Test========");
-    let newTitle = req.body.title;
-    console.log(newTitle);
-
-    // 기존 값 변경
-    console.log("========save Test========");
-
     
-    return res.redirect(`/video/${id}`)
+    // reqData
+    const {title, description, hashtags} = req.body
+
+    // FindData
+    const videos = await videoModel.findById(id).exec();
+
+    // error
+    if(!videos) {
+        return res.render("error404", {pageTitle:"Video Not Found"}) 
+    }
+    //updata
+    videos.title = title;
+    videos.description = `${description}`;
+    videos.hashtags = hashtags
+        .split(",")
+        .map((test) => test.startsWith('#') ? test : `#${test}`);
+        
+    await videos.save();
+    return res.redirect(`/video/${id}`);
 }
 
 /**
@@ -61,27 +88,28 @@ export const getUpload = (req, res) => {
  * post Upload
  */
 export const postUpload  = async (req, res) => {
+    console.log(`============================== postUpload ==============================`);
     
-    const { title, description, hashtags, meta } = req.body
-    
-    // const video = new videoModel({
+    const { title, titleTest, description, hashtags, createAt, meta } = req.body
+    // console.log(`${{title, description, hashtags, createAt, meta}}`)
+
     try{
         await videoModel.create({    
             title,
+            titleTest,
             description,
-            createAt : Date.now(),
             hashtags : hashtags.split(",").map(test=>`#${test}`),
-            meta : {
-                views : 0,
-                rating : 0
-            },
+            createAt,
+            // meta : meta={
+            //     views,
+            //     rating
+            // }  
         })
-    }catch{
-        console.log("error");
+        return res.redirect("/");
+    }catch(error){
+        // console.log(error._message);
+        return res.render("upload", {pageTitle:"upload", errMsg:error._message});
     }
-
-    // await video.save();
-    return res.redirect("/")
 }
 
 

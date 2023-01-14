@@ -3,9 +3,7 @@ mixin video(info)
             
         a(href=`/video/${info.id}`) #{info.title}
 
-        ul 
-            li=info.description
-            li=info.createAt
-            li=info.hashtags
-            li=info.meta.views
-            li=info.meta.rating
+        p=info.description
+        small=info.crateAt
+        hr
+        
