@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CSS</title>
-<!--
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS</title>
+    <!--
     em, rem, viewport
 
 -->
 
-<style>
-    html {
+    <style>
+      html {
         font-size: 16px;
-    }
+      }
 
-    span.em{
-         font-size: 2em;
-        
-    }
+      span.em {
+        font-size: 2em;
+      }
 
-    span.rem{
+      span.rem {
         font-size: 2rem;
-    }
+      }
 
-    div.basicBox{
-        background-color: blue;           
-        width : 300px;
+      div.basicBox {
+        background-color: blue;
+        width: 300px;
         height: 300px;
-    }
+      }
 
-    div.viewportBox{
-        background-color: red;           
-        width : 30vw;
-        height: 30vw;        
-    }
+      div.viewportBox {
+        background-color: red;
+        width: 30vw;
+        height: 30vw;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>[em, rem, viewport]</h3>
+    <br />
 
-</style>    
-</head>
-<body>
-<h3>[em, rem, viewport]</h3>    
-<br>
-
-<h3>* em </h3>
-<!-- 
+    <h3>* em</h3>
+    <!-- 
     em, rem
 
     em: em은 배수로 px적용됨.
@@ -73,23 +71,20 @@
         ex) 16px 기준 4rem
             16px * 4(style rem) = 64px
 -->
-<span class="em">
-    <span class="em">중첩1</span>
-    <span class="em">중첩2</span>    
-</span><br>
+    <span class="em">
+      <span class="em">중첩1</span>
+      <span class="em">중첩2</span> </span
+    ><br />
 
-<h3>* rem </h3>
-<span class="rem">
-    <span class="rem">중첩1</span>
-    <span class="rem">중첩2</span>
-    <span class="rem">중첩3</span>
-</span><br>
+    <h3>* rem</h3>
+    <span class="rem">
+      <span class="rem">중첩1</span>
+      <span class="rem">중첩2</span>
+      <span class="rem">중첩3</span> </span
+    ><br />
 
-
-
-
-<h3>* view port</h3>
-<!--
+    <h3>* view port</h3>
+    <!--
     view port
         웹브라우저에서 웹페이지가 표시되는 영역을 의미하며,
         웹페이지 개발 상에서는 다양한 사이즈의 디스플레이에 따라, 관련 사이즈 정보를 viewport를 통해 확인 및 제어할 수 있음.
@@ -99,14 +94,9 @@
     vmin    : viewport 너비 또는 높이 중 작은 쪽의 1/100 (1%)
     vmax    : viewport 너비 또는 높이 중 큰 쪽의 1/100 (1%)
 -->
-<div>
-    <div class="basicBox">basicBox</div>
-    <div class="viewportBox">viewportBox</div>
-</div>
-
-
-
-
-
-</body>
+    <div>
+      <div class="basicBox">basicBox</div>
+      <div class="viewportBox">viewportBox</div>
+    </div>
+  </body>
 </html>
