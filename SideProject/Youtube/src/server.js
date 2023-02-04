@@ -5,7 +5,7 @@
  */
 import express from "express";
 import morgan from "morgan";
-import globalRouter from "./Router/globalRouter";
+import rootRouter from "./Router/rootRouter";
 import userRouter from "./Router/userRouter";
 import videoRouter from "./Router/videoRouter";
 
@@ -21,12 +21,12 @@ app.use(logger);
  * express기능으로 form데이터를 인식할수 있도록 적용,
  * url을 넘어갈때는 middleWare 이후 진행되기에 middleWare 사용 전에 적용해야함
  */
-app.use(express.urlencoded({extended : true}));
+app.use(express.urlencoded({ extended: true }));
 
 /**
- * MiddleWare 
+ * MiddleWare
  */
-app.use("/", globalRouter);
+app.use("/", rootRouter);
 app.use("/user", userRouter);
 app.use("/video", videoRouter);
 
@@ -40,5 +40,3 @@ app.set("view engine", "pug");
  * + /src/views : 원하는 위치 경로설정
  */
 app.set("views", process.cwd() + "/src/views");
-
-

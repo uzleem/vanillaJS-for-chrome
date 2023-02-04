@@ -1,4 +1,5 @@
 extends layout.pug
+include mixins/video
 
 block contents
 
@@ -6,6 +7,8 @@ block contents
         input(type="text", placeholder="Search by title", name="keyword")
         input(type="submit", value="Search Now")
 
-    
+    each info in test
+        +video(info)
+
 
     

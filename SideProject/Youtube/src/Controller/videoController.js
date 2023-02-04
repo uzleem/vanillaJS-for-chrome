@@ -64,7 +64,10 @@ export const postEdit = async (req, res) => {
 
   // error
   if (!videos) {
-    return res.render("error404", { pageTitle: "Video Not Found" });
+    return res.render(
+      "erro                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        r404",
+      { pageTitle: "Video Not Found" }
+    );
   }
 
   //updata
@@ -130,8 +133,17 @@ export const search = async (req, res) => {
   const { keyword } = req.query;
   console.log(keyword);
 
-  //   if(query) {
+  let test = [];
 
-  //   }
-  res.render("search", { pageTitle: "search" });
+  if (keyword) {
+    test = await videoModel.find({
+      title: {
+        $regex: new RegExp(`${keyword}$`, "i"),
+      },
+    });
+  }
+
+  console.log(`test : ${test}`);
+
+  res.render("search", { pageTitle: "search", test });
 };
