@@ -1,5 +1,10 @@
 import express from "express";
-import { getJoin, postJoin, login } from "../Controller/userController";
+import {
+  getJoin,
+  postJoin,
+  getLogin,
+  postLogin,
+} from "../Controller/userController";
 import { home, search } from "../Controller/videoController";
 
 /**
@@ -10,8 +15,8 @@ const rootRouter = express.Router();
 
 // Request(요청)
 rootRouter.get("/", home);
-rootRouter.get("/join", getJoin).post("/join", postJoin);
-rootRouter.get("/login", login);
+rootRouter.route("/join").get(getJoin).post(postJoin);
+rootRouter.route("/login").get(getLogin).post(postLogin);
 rootRouter.get("/search", search);
 
 export default rootRouter;
