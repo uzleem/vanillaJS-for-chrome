@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <span id="total">Total Click : 0 </span>
+    <button id="btn">Click</button>
+  </body>
+  <script>
+    let total = document.querySelector("#total");
+
+    let cnt = 0;
+
+    const button = document.getElementById("btn");
+
+    function myFunction() {
+      console.log("hi button");
+
+      total.innerText = `Total Click : ${++cnt}`;
+    }
+
+    button.addEventListener("click", myFunction);
+  </script>
+</html>

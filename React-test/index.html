@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+
+  <!-- React & ReactDom import -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+
+    function App() {
+      const [minutes, setMinutes] = React.useState();
+
+      const onChange = () => {
+        console.log("hi");
+      };
+
+      return (
+        <div>
+          <h3>Super Converter</h3>
+
+          <label>Minutes</label>
+          <input
+            value={minutes}
+            id="minutes"
+            placeholder="Minutes"
+            type="text"
+            onChange={onChange}
+          ></input>
+
+          <label>Hours</label>
+          <input id="hours" placeholder="Hours" type="text"></input>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, root);
+  </script>
+</html>

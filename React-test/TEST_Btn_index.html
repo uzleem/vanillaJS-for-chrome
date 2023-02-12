@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+
+  <!-- React & ReactDom import -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+
+    /*
+        React기능을 통해 데이터가 바뀔때마다 컴포넌트를 리렌더링하고 UI를 refesh함.
+        (JS 경우 refresh할 경우 함수 호출을 계속 해야함.)
+    */
+    function App() {
+      const [count, modify] = React.useState(0);
+
+      const onClick = () => {
+        // modify(count + 1);
+        modify((tmp) => tmp + 1);
+      };
+
+      return (
+        <div>
+          <h3>Total click : {count}</h3>
+          <button onClick={onClick}>Click</button>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, root);
+
+    // render();
+  </script>
+</html>
