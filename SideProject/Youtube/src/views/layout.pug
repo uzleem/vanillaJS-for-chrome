@@ -1,21 +1,34 @@
 doctype html
 html(lang ="ko")
     head
-        title #{pageTitle} | Youtube
+        title #{pageTitle} | #{siteName}
         link(rel="stylesheet" href="https://unpkg.com/mvp.css")
     body 
         header
+            h1=test
             h1=pageTitle
             nav 
                 ul 
                     li
-                        a(href="/") Home 
+                        a(href="/") Home     
+                    
+                    if loggedIn
+                        li
+                            a(href="/logout") Logout
+                        li 
+                            a(href="/my-Profile") #{user.name}의 Profile
+                            
+                    else                            
+                        li
+                            a(href="/join") Join
+                        li
+                            a(href="/login") Login                             
+
                     li
                         a(href="/video/upload") Upload Video
                     li
                         a(href="/search") Search    
-                    li
-                        a(href="/join") Join
+
                         
         main
             block contents 

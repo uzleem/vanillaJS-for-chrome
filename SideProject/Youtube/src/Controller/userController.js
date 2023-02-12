@@ -108,7 +108,14 @@ export const postLogin = async (req, res) => {
     });
   }
 
+  // ?
+  req.session.loggedIn = true;
+
+  // user 정보 전달
+  req.session.user = findUserName;
+
   console.log(`================= postLogin > Home =================`);
+
   return res.redirect("/");
 };
 

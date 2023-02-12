@@ -2,6 +2,7 @@ import videoModel from "../model/video";
 
 export const home = async (req, res) => {
   console.log(`================= home =================`);
+  console.log(req.session.user);
 
   // mongoose data 모두 조회
   const videos = await videoModel.find({});
@@ -81,6 +82,7 @@ export const postEdit = async (req, res) => {
  * get Upload
  */
 export const getUpload = (req, res) => {
+  console.log(`================= getUpload =================`);
   return res.render("upload", { pageTitle: "upload" });
 };
 
