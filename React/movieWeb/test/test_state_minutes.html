@@ -11,7 +11,7 @@
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    function App() {
+    function MinutesToHours() {
       const [minutes, setMinutes] = React.useState(0);
       const [flipData, flipUpdate] = React.useState(false);
 
@@ -30,8 +30,6 @@
 
       return (
         <div>
-          <h3>Super Converter</h3>
-
           <div>
             <label>Minutes</label>
             <input
@@ -60,6 +58,39 @@
             <button onClick={reset}>Reset</button>
             <button onClick={flip}>Flip</button>
           </div>
+        </div>
+      );
+    }
+
+    function KmMiles() {
+      return <h3>Km & Miles</h3>;
+    }
+
+    /* 
+      1. 분할정복 기법 : function을 분할에서 한곳에서 실행 <MinutesToHours/> 
+      2. {} : HTML에 js를 사용 가능 하도록 함.
+    */
+
+    function App() {
+      const [index, setIndex] = React.useState("choise");
+
+      const onChange = (event) => {
+        setIndex(event.target.value);
+      };
+
+      return (
+        <div>
+          <h3>Super Converter</h3>
+          <select value={index} onChange={onChange}>
+            <option value="choise">-선택-</option>
+            <option value="0">MinutesToHours</option>
+            <option value="1">KmMiles</option>
+          </select>
+          <hr />
+
+          {index === "choise" ? <p>선택해주세요</p> : null}
+          {index === "0" ? <MinutesToHours /> : null}
+          {index === "1" ? <KmMiles /> : null}
         </div>
       );
     }
