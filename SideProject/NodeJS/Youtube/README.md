@@ -1,12 +1,4 @@
-# Node.JS
-
-# 연습
-
-# 클론코딩
-
-# CRUD
-
-# Youtube Reloaded
+# NodeJS 사이드프로젝트
 
 / -> Home
 /join -> Join

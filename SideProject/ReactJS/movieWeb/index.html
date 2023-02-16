@@ -9,36 +9,50 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
+    // 기본 틀
     const root = document.getElementById("root");
 
-    function Btn({ props, big }) {
-      console.log(big);
+    /*
+        1. React에서는 상태변경 시 re-render가 일어남.
+        2. 상태변경이 되지않은 값들도 re-render시켜주기에
+        3. 불필요한 re-render를 막아주기 위해 React.memo() 사용
+    */
+    const MemoBtn = React.memo(Btn);
+
+    function Btn({ props, btnClick }) {
+      console.log(props, "render");
       return (
         <button
+          onClick={btnClick}
           style={{
             backgroundColor: "red",
             color: "white",
             padding: "10px 20px",
             border: 10,
             borderRadius: 10,
-            fontSize: big ? 20 : 10,
           }}
         >
           {props}
         </button>
       );
     }
-    /*
-      function() : 컴포넌트
-      <Data/> : JSX 내부
-      */
 
+    /*  
+      - <Data/> : JSX 내부
+      - function() : 컴포넌트 단위
+    */
     function App() {
+      const [value, setValue] = React.useState("Hi Button1");
+
+      const changeValue = () => {
+        setValue("Bye Button1");
+      };
+
       return (
         <div>
           <div>
-            <Btn props="A" big="true" />
-            <Btn props="B" big="false" />
+            <MemoBtn props={value} btnClick={changeValue} />
+            <MemoBtn props="Hi props2" />
           </div>
         </div>
       );
