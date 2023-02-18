@@ -1,4 +1,4 @@
-# NodeJS 사이드프로젝트
+# NodeJS 사이드프로젝트 (50 / 100%)
 
 / -> Home
 /join -> Join
