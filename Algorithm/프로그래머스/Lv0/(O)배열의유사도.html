@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열의유사도</title>
+  </head>
+  <body></body>
+
+  <script>
+    /*
+        두 배열이 얼마나 유사한지 확인해보려고 합니다. 
+        문자열 배열 s1과 s2가 주어질 때 같은 원소의 개수를 return하도록 solution 함수를 완성해주세요.      
+    */
+    // function solution(s1, s2) {
+    //   let cnt = 0;
+
+    //   s1.forEach((element1) => {
+    //     s2.forEach((element2) => {
+    //       if (element1 === element2) cnt++;
+    //     });
+    //   });
+
+    //   return cnt;
+    // }
+
+    /*
+        다른 풀이 : filter
+    */
+    function solution(s1, s2) {
+      // console.log(s1.filter((a) => s2.includes(a)).length);
+      return s1.filter((a) => s2.includes(a)).length;
+    }
+
+    solution(["a", "b", "c"], ["com", "b", "d", "p", "c"]);
+    // solution(["n", "omg"], ["m", "dot"]);
+  </script>
+</html>

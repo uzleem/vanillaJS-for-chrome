@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>짝수 홀수 개수</title>
+  </head>
+
+  <body>
+    <script>
+      /*
+          정수가 담긴 리스트 num_list가 주어질 때, 
+          num_list의 원소 중 짝수와 홀수의 개수를 담은 배열을 return 하도록 solution 함수를 완성해보세요.
+      */
+
+      function solution(num_list) {
+        let num = [0, 0];
+
+        // console.log(num);
+
+        num_list.forEach((element) => {
+          if (element % 2 == 0) num[0] += 1;
+          else num[1] += 1;
+        });
+
+        return num;
+      }
+
+      let array = [1, 2, 3, 4, 5];
+      // let array = [1,3,5,7];
+
+      solution(array);
+    </script>
+  </body>
+</html>
