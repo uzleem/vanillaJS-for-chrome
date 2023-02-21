@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+
+  <!-- @React & ReactDom import -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+
+  <!-- @babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- propsType -->
+  <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+
+  <script type="text/babel">
+    function Btn({ text, fontSize = 30 }) {
+      return (
+        <button
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            padding: "10px 20px",
+            border: 10,
+            borderRadius: 10,
+            fontSize,
+          }}
+        >
+          {text}
+        </button>
+      );
+    }
+
+    /*
+        1. React는 Error를 따로 표시해주지 않지만 PropTypes를 사용하면 Error를 표시해주는역할을함.
+        2. text : string
+        3. fontSize : number
+        4. isRequired인 경우 필수로 값을 넣어줘야함.
+    */
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    };
+
+    /*
+      - <Data/> : JSX 내부
+      - function() : 컴포넌트 단위
+    */
+    function App() {
+      return (
+        <div>
+          <Btn text={"text"} fontSize={18} />
+          <Btn text={"Continue"} />
+        </div>
+      );
+    }
+
+    // 기본 틀
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+  </script>
+</html>

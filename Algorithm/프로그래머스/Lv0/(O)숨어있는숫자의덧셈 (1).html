@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숨어있는 숫자의 덧셈 (1)</title>
+  </head>
+  <body></body>
+
+  <script>
+    /*
+        문자열 my_string이 매개변수로 주어집니다. 
+        my_string안의 모든 자연수들의 합을 return하도록 solution 함수를 완성해주세요.
+  */
+    // charCodeAt
+    function solution(my_string) {
+      console.log(
+        my_string
+          .split("")
+          .filter((a) => a.charCodeAt() >= 48 && a.charCodeAt() <= 57)
+          .map(Number)
+          .reduce((a, b) => a + b)
+      );
+    }
+
+    solution("aAb1B2cC34oOp");
+  </script>
+</html>

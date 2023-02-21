@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자릿수더하기</title>
+  </head>
+  <body></body>
+
+  <script>
+    /*
+        정수 n이 매개변수로 주어질 때,
+        n의 각 자리 숫자의 합을 return하도록 solution 함수를 완성해주세요
+    */
+    // function solution(n) {
+    //   let cnt = 0;
+
+    //   let data = String(n).split("").map(Number);
+
+    //   data.forEach((element) => {
+    //     cnt += element;
+    //   });
+
+    //   console.log(cnt);
+    //   return cnt;
+    // }
+
+    /*
+       다른풀이 : reduce()  
+
+       1. n값 문자열 변환 : "1234"
+       2. split활용 배열로 담기 : ["1","2","3","4"]
+       3. map활용 숫자로 변환 : [1,2,3,4]
+       4. reduce 활용 누적합 
+  */
+    function solution(n) {
+      return String(n)
+        .split("")
+        .map(Number)
+        .reduce((a, b) => a + b);
+    }
+
+    solution(1234);
+  </script>
+</html>

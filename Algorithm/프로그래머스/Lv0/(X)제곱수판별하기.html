@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제곱수판별하기</title>
+  </head>
+  <body></body>
+
+  <script>
+    /*
+        어떤 자연수를 제곱했을 때 나오는 정수를 제곱수라고 합니다.
+        정수 n이 매개변수로 주어질 때,
+        n이 제곱수라면 1을 아니라면 2를 return하도록 solution 함수를 완성해주세요.
+
+        - 1. Math.sqrt(n) : 정수의 제곱근을 리턴해줌
+        - 2. 리턴값을 % 2 나머지값이 0이면 1 아니면 2
+        - 3. 리턴값이 0.0123인 경우 0으로 판단될수있어 값 올림처리
+    */
+
+    function solution(n) {
+      // console.log(Math.ceil(Math.sqrt(n) % 2) === 0 ? 1 : 2);
+      return Math.ceil(Math.sqrt(n) % 2) === 0 ? 1 : 2;
+    }
+
+    solution(12134);
+  </script>
+</html>
