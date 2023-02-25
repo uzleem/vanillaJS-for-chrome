@@ -1,47 +1,45 @@
 import React, { useState, useEffect } from "react";
 
-
-
-/*
-    1. useEffect 사용으로 Hello() 호출 시에 show상태에서만 log가 찍히는데,
-       Cleanup function을 활용하여 Hide시에도 log가 출력되도록함.
-       (아래코드와 같은원리)
-*/
-function Hello() {
-  useEffect(() => {
-    console.log("show:");
- 
-    return () => console.log("Hide:");
-  }, [])
-  return <h1>Hello</h1>
-}
-
-function Hello2() {
-  function hiFn() {
-    console.log("hiFn:");
-    return byeFn
-  }
-  
-  function byeFn() {
-    console.log("byeFn:");
-    
-  }
-  
-  useEffect(hiFn, []);
-  
-  return <h1>Hello</h1>
-}
-
-
 function App() {
-  const [show, setShow] = useState(false);
+  const [loding, setLoding] = useState(true);
+  const [movie, setMovie] = useState([]);
 
-  const onClick = () => setShow((prev) => !prev)
+  const movieJson = async () => {
+    const json = await (
+      await fetch(
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`
+      )
+    ).json();
+
+    setMovie(json.data.movies);
+    setLoding(false);
+  };
+  console.log(movie);
+
+  useEffect(() => {
+    movieJson();
+  }, []);
+
   return (
-
     <div>
-      {show ? <Hello/> : null}
-      <button onClick={onClick}>{show ? "Hide" : "Show"}</button>
+      {loding ? (
+        <h1>Loding...</h1>
+      ) : (
+        <div>
+          {movie.map((item) => (
+            <div key={item.id}>
+              <h2>{item.title}</h2>
+              <img src={item.medium_cover_image}></img>
+              <p>{item.summary}</p>
+              <ul>
+                {item.genres.map((item2) => (
+                  <li key={item2}>{item2}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
