@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function Movie({ title, image, summary, genres }) {
+function Movie({ id, title, image, summary, genres }) {
   return (
     <div>
       <h2>
-        <Link to="/movie"> {title}</Link>
+        <Link to={`/movie/${id}`}> {title}</Link>
       </h2>
-      <Link to="/movie">
+      <Link to={`/movie/${id}`}>
         <img src={image} alt={title}></img>
       </Link>
       <p>{summary}</p>

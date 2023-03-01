@@ -37,6 +37,7 @@ function Home() {
           {movie.map((item) => (
             <Movie
               key={item.id}
+              id={item.id}
               title={item.title}
               image={item.medium_cover_image}
               summary={item.summary}
