@@ -1,6 +1,6 @@
 # 소개
 
-vanillaJS 사이드프로젝트 : chrome 웹페이지 클론코딩
+vanillaJS 사이드프로젝트 : chrome 웹페이지
 
 (현재는 LayOut만 작성되었고, 추후 내용 추가 예정)
 
