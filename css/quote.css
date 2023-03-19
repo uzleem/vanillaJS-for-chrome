@@ -1,0 +1,13 @@
+#quote {
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in;
+  font-style: italic;
+  font-size: 12px;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+}
+
+#quote:hover {
+  opacity: 1;
+}
